@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="abstractColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="abstractForm" onsubmit="submitAbstractSample(this)">
+            <input type="checkbox" id="abstractVariant" data-id="abstractVariant"> Вариант или номер <br>
+            <input type="checkbox" id="abstractDate" data-id="abstractDate"> Дата выдачи <br>
+            <input type="checkbox" id="abstractComments" data-id="abstractComments"> Комментарии <br>
+            <input type="checkbox" id="abstractRemarks" data-id="abstractRemarks"> Замечания <br><br>
+            
+            <label for="abstractFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="abstractFilter" data-id="abstractFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="abstractGroupSort" data-id="abstractGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="abstractSurnameSort" data-id="abstractSurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="studentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="abstractStudentsDocUrl" name="abstractStudentsDocUrl" placeholder="..."><br><br>
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

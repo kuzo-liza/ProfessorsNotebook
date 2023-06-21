@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="testsColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="testsForm" onsubmit="submitTestsSample(this)">
+            <input type="checkbox" id="testsName" name="testsName" data-id="testsName"> Название теста <br>
+            <input type="checkbox" id="testsDuration" data-id="testsDuration"> Длительность теста <br>
+            <input type="checkbox" id="testsStudentDuration" data-id="testsStudentDuration"> Длительность решения студентом <br>
+            <input type="checkbox" id="testsPresence" name="testsPresence" data-id="testsPresence"> Посещаемость <br>
+            <input type="checkbox" id="testsComments" data-id="testsComments"> Комментарии <br>
+            <input type="checkbox" id="testsRemarks" data-id="testsRemarks"> Замечания <br><br>
+
+            <label for="testsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="testsFilter" data-id="testsFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="testsGroupSort" data-id="testsGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="testsSurnameSort" data-id="testsSurnameSort"> Отсортировать по фамилии <br><br>
+            
+            <label for="testsStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="testsStudentsDocUrl" name="testsStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>
+

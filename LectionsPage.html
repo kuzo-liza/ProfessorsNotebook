@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="lectionsColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="lectionsForm" onsubmit="submitLectionsSample(this)">
+
+            <input type="checkbox" id="lectionsName" name="lectionsName" data-id="lectionsName"> Название лекции <br>
+            <input type="checkbox" id="lectionsFormat" data-id="lectionsFormat"> Формат (очно/дистанционно) <br>
+            <input type="checkbox" id="lectionsDuration" data-id="lectionsDuration"> Длительность лекции <br>
+            <input type="checkbox" id="lectionsStudentDuration" data-id="lectionsStudentDuration"> Длительность посещения студентом <br>
+            <input type="checkbox" id="lectionsComments" data-id="lectionsComments"> Комментарии <br>
+            <input type="checkbox" id="lectionsRemarks" data-id="lectionsRemarks"> Замечания <br><br>
+  
+            <label for="lectionsNum">Количество лекций</label>
+            <input type="number" id="lectionsNumber" name="lectionsNumber" placeholder="..."><br><br>
+
+            <label for="lectionsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="lectionsFilter" data-id="lectionsFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="lectionsGroupSort" data-id="lectionsGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="lectionsSurnameSort" data-id="lectionsSurnameSort"> Отсортировать по фамилии <br><br>
+           
+            <label for="lectionsStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="lectionsStudentsDocUrl" name="lectionsStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>
+

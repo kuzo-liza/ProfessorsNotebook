@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="vkrColumns">Выберите дополнительные данные для таблицы аттестаций ВКР, которые необходимо добавить</label><br>
+          <form id="vkrForm" onsubmit="submitVKRSample(this)">
+
+            <input type="checkbox" id="vkrAttendance" data-id="vkrAttendance"> Присутствие на аттестации <br>
+            <input type="checkbox" id="vkrCommentsAttestation" data-id="vkrCommentsAttestation"> Комментарии <br>
+            <input type="checkbox" id="vkrRemarksAttestation" data-id="vkrRemarksAttestation"> Замечания <br><br>
+            
+            <label for="vkrExtraColumns">Выберите дополнительные данные для таблицы защит ВКР, которые необходимо добавить</label><br>
+            <input type="checkbox" id="vkrPointsSupervisor" data-id="vkrPointsSupervisor"> Оценка руководителя <br>
+            <input type="checkbox" id="vkrPointsReviewer" data-id="vkrPointsReviewer"> Оценка рецензента <br>
+            <input type="checkbox" id="vkrOriginality" data-id="vkrOriginality"> Процент оригинальности <br>
+            <input type="checkbox" id="vkrResult" data-id="vkrResult"> Результат защиты <br>
+            <input type="checkbox" id="vkrComments" data-id="vkrComments"> Комментарии <br>
+            <input type="checkbox" id="vkrRemarks" data-id="vkrRemarks"> Замечания <br><br>
+
+            <label for="vkrFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="vkrFilter" data-id="vkrFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="vkrGroupSort" data-id="vkrGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="vkrSurnameSort" data-id="vkrSurnameSort"> Отсортировать по фамилии <br>
+            <input type="checkbox" id="vkrAttendanceNumberSort" data-id="vkrAttendanceNumberSort"> Отсортировать по номеру аттестации <br><br>
+
+            <label for="studentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="vkrStudentsDocUrl" name="vkrStudentsDocUrl" placeholder="..."><br><br>
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

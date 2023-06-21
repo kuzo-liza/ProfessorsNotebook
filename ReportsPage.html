@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="reportsColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="reportsForm" onsubmit="submitReportsSample(this)">
+            <input type="checkbox" id="reportsNumber" data-id="reportsNumber"> Номер выступления <br>
+            <input type="checkbox" id="reportsDuration" data-id="reportsDuration"> Длительность доклада <br>
+            <input type="checkbox" id="reportsPresentation" data-id="reportsPresentation"> Оценка за презентацию <br>
+            <input type="checkbox" id="reportsComments" data-id="reportsComments"> Комментарии <br>
+            <input type="checkbox" id="reportsRemarks" data-id="reportsRemarks"> Замечания <br><br>
+  
+            <label for="reportsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="reportsFilter" data-id="reportsFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="reportsGroupSort" data-id="reportsGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="reportsSurnameSort" data-id="reportsSurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="studentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="reportsStudentsDocUrl" name="reportsStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

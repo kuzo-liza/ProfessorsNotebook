@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="essayColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="essayForm" onsubmit="submitEssaySample(this)">
+
+            <input type="checkbox" id="essayVariant" data-id="essayVariant"> Вариант или номер <br>
+            <input type="checkbox" id="essayDate" data-id="essayDate"> Дата выдачи <br>
+            <input type="checkbox" id="essayComments" data-id="essayComments"> Комментарии <br>
+            <input type="checkbox" id="essayRemarks" data-id="essayRemarks"> Замечания <br><br>
+            
+            <label for="essayFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="essayFilter" data-id="essayFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="essayGroupSort" data-id="essayGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="essaySurnameSort" data-id="essaySurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="studentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="essayStudentsDocUrl" name="essayStudentsDocUrl" placeholder="..."><br><br>
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

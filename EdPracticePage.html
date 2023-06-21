@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="edPracticeColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="edPracticeForm" onsubmit="submitEdPracticeSample(this)">
+
+            <input type="checkbox" id="edPracticeCurator" data-id="edPracticeCurator"> Куратор <br>
+            <input type="checkbox" id="edPracticeTheme" data-id="edPracticeTheme"> Тема <br>
+            <input type="checkbox" id="edPracticeComments" data-id="edPracticeComments"> Комментарии <br>
+            <input type="checkbox" id="edPracticeRemarks" data-id="edPracticeRemarks"> Замечания <br><br>
+            
+            <label for="edPracticeFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="edPracticeFilter" data-id="edPracticeFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="edPracticeGroupSort" data-id="edPracticeGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="edPracticeSurnameSort" data-id="edPracticeSurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="studentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="edPracticeStudentsDocUrl" name="edPracticeStudentsDocUrl" placeholder="..."><br><br>
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

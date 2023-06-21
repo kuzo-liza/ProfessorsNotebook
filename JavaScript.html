@@ -1,0 +1,382 @@
+<script>
+  function openTab(event, tabTitle) {
+      let tabContent, tabLinks, target
+      tabContent = document.getElementsByClassName("tabcontent")
+      for (let i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none"
+      tabContent[i].className = tabContent[i].className.replace(" is-active", "")
+      }
+      tabLinks = document.getElementsByClassName("tabLinks")
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" is-active", "")
+      }
+      target = document.getElementById(tabTitle)
+      target.style.display = "block"
+      target.classList.remove("is-hidden")
+      target.className += " is-active"
+      event.currentTarget.parentElement.classList.add("is-active")
+    }
+
+    function addMySample(id) {
+      google.script.run.createMySampleFromJSON(id)
+    }
+
+    function checkCheckboxSample(checkboxId) {
+        var id = checkboxId.dataset.id
+        var checkBox = document.getElementById(id)
+        if (checkBox.checked) {
+          switch (id) {
+            case "lectionsCheckbox":
+              alert( 'Таблица "Лекции" будет добавлена в шаблон' )
+              google.script.run.showDialogLections()
+              break
+            case "practiceCheckbox":
+              alert( 'Таблица "Практики" будет добавлена в шаблон' )
+              google.script.run.showDialogPractices()
+              break
+            case "labsCheckbox":
+              alert( 'Таблица "Лабораторные работы" будет добавлена в шаблон' )
+              google.script.run.showDialogLabs()
+              break
+            case "courseWorkCheckbox":
+              alert( 'Таблица "Курсовая работа" будет добавлена в шаблон' )
+              google.script.run.showDialogCourseWork()
+              break
+            case "courseProjectCheckbox":
+              alert( 'Таблица "Курсовой проект" будет добавлена в шаблон' )
+              google.script.run.showDialogCourseProject()
+              break
+            case "testsCheckbox":
+              alert( 'Таблица "Тесты" будет добавлена в шаблон' )
+              google.script.run.showDialogTests()
+              break
+            case "controlCheckbox":
+              alert( 'Таблица "Контрольные работы" будет добавлена в шаблон' )
+              google.script.run.showDialogControls()
+              break
+            case "reportsCheckbox":
+              alert( 'Таблица "Доклады" будет добавлена в шаблон' )
+              google.script.run.showDialogReports()
+              break
+            case "abstractCheckbox":
+              alert( 'Таблица "Рефераты" будет добавлена в шаблон' )
+              google.script.run.showDialogAbstract()
+              break
+            case "essayCheckbox":
+              alert( 'Таблица "Эссе" будет добавлена в шаблон' )
+              google.script.run.showDialogEssay()
+              break
+            case "homeworkCheckbox":
+              alert( 'Таблица "Домашние задания" будет добавлена в шаблон' )
+              google.script.run.showDialogHomeworks()
+              break
+            case "edPracticeCheckbox":
+              alert( 'Таблица "Практика" будет добавлена в шаблон' )
+              google.script.run.showDialogEdPractice()
+              break
+            case "vkrCertificationCheckbox":
+              alert( 'Таблицы "Аттестации ВКР" и "Защита ВКР" будут добавлены в шаблон' )
+              google.script.run.showDialogVKRCertification()
+              break
+            default:
+              alert( "Нет такого поля" )
+          }
+        } 
+      }
+
+      function submitEdPracticeSample(form) {
+        let edPracticeSettings = new Object()
+        edPracticeSettings.hasCurator = form.edPracticeCurator.checked
+        edPracticeSettings.hasTheme = form.edPracticeTheme.checked
+        edPracticeSettings.hasComments = form.edPracticeComments.checked
+        edPracticeSettings.hasRemarks = form.edPracticeRemarks.checked
+        edPracticeSettings.hasFilter = form.edPracticeFilter.checked
+        edPracticeSettings.hasGroupSort = form.edPracticeGroupSort.checked
+        edPracticeSettings.hasSurnameSort = form.edPracticeSurnameSort.checked
+        edPracticeSettings.studentsDocUrl = form.edPracticeStudentsDocUrl.value
+
+        google.script.run.saveEdPracticeSettings(JSON.stringify(edPracticeSettings))
+        google.script.host.close()
+      }
+
+      function submitCourseWorkSample(form) {
+        let courseWorkSettings = new Object()
+        courseWorkSettings.hasVariant = form.courseWorkVariant.checked
+        courseWorkSettings.hasReport = form.courseWorkReport.checked
+        courseWorkSettings.hasComments = form.courseWorkComments.checked
+        courseWorkSettings.hasRemarks = form.courseWorkRemarks.checked
+        courseWorkSettings.hasFilter = form.courseWorkFilter.checked
+        courseWorkSettings.hasGroupSort = form.courseWorkGroupSort.checked
+        courseWorkSettings.hasSurnameSort = form.courseWorkSurnameSort.checked
+        courseWorkSettings.studentsDocUrl = form.courseWorkStudentsDocUrl.value
+
+        google.script.run.saveCourseWorkSettings(JSON.stringify(courseWorkSettings))
+        google.script.host.close()
+      }
+
+      function submitCourseProjectSample(form) {
+        let courseProjectSettings = new Object()
+        courseProjectSettings.hasVariant = form.courseProjectVariant.checked
+        courseProjectSettings.hasReport = form.courseProjectReport.checked
+        courseProjectSettings.hasComments = form.courseProjectComments.checked
+        courseProjectSettings.hasRemarks = form.courseProjectRemarks.checked
+        courseProjectSettings.hasFilter = form.courseProjectFilter.checked
+        courseProjectSettings.hasGroupSort = form.courseProjectGroupSort.checked
+        courseProjectSettings.hasSurnameSort = form.courseProjectSurnameSort.checked
+        courseProjectSettings.studentsDocUrl = form.courseProjectStudentsDocUrl.value
+
+        google.script.run.saveCourseProjectSettings(JSON.stringify(courseProjectSettings))
+        google.script.host.close()
+      }
+
+      function submitHomeworkSample(form) {
+        let homeworksSettings = new Object()
+        homeworksSettings.hasName = form.homeworkName.checked
+        homeworksSettings.hasBlackboardAnswer = form.homeworkBlackboardAnswer.checked
+        homeworksSettings.hasComments = form.homeworkComments.checked
+        homeworksSettings.hasRemarks = form.homeworkRemarks.checked
+        homeworksSettings.hasFilter = form.homeworkFilter.checked
+        homeworksSettings.hasGroupSort = form.homeworkGroupSort.checked
+        homeworksSettings.hasSurnameSort = form.homeworkSurnameSort.checked
+        homeworksSettings.studentsDocUrl = form.homeworkStudentsDocUrl.value
+
+        google.script.run.saveHomeworksSettings(JSON.stringify(homeworksSettings))
+        google.script.host.close()
+      }
+
+      function submitTestsSample(form) {
+        let testsSettings = new Object()
+        testsSettings.hasName = form.testsName.checked
+        testsSettings.hasDuration = form.testsDuration.checked
+        testsSettings.hasStudentDuration = form.testsStudentDuration.checked
+        testsSettings.hasPresence = form.testsPresence.checked
+        testsSettings.hasComments = form.testsComments.checked
+        testsSettings.hasRemarks = form.testsRemarks.checked
+        testsSettings.hasFilter = form.testsFilter.checked
+        testsSettings.hasGroupSort = form.testsGroupSort.checked
+        testsSettings.hasSurnameSort = form.testsSurnameSort.checked
+        testsSettings.studentsDocUrl = form.testsStudentsDocUrl.value
+
+        google.script.run.saveTestsSettings(JSON.stringify(testsSettings))
+        google.script.host.close()
+      }
+
+      function submitControlsSample(form) {
+        let controlsSettings = new Object()
+        controlsSettings.hasName = form.controlsName.checked
+        controlsSettings.hasDuration = form.controlsDuration.checked
+        controlsSettings.hasStudentDuration = form.controlsStudentDuration.checked
+        controlsSettings.hasPresence = form.controlsPresence.checked
+        controlsSettings.hasComments = form.controlsComments.checked
+        controlsSettings.hasRemarks = form.controlsRemarks.checked
+        controlsSettings.hasFilter = form.controlsFilter.checked
+        controlsSettings.hasGroupSort = form.controlsGroupSort.checked
+        controlsSettings.hasSurnameSort = form.controlsSurnameSort.checked
+        controlsSettings.studentsDocUrl = form.controlsStudentsDocUrl.value
+
+        google.script.run.saveControlsSettings(JSON.stringify(controlsSettings))
+        google.script.host.close()
+      }
+
+      function submitReportsSample(form) {
+        let reportsSettings = new Object()
+        reportsSettings.hasNumber = form.reportsNumber.checked
+        reportsSettings.hasDuration = form.reportsDuration.checked
+        reportsSettings.hasPresentation = form.reportsPresentation.checked
+        reportsSettings.hasComments = form.reportsComments.checked
+        reportsSettings.hasRemarks = form.reportsRemarks.checked
+        reportsSettings.hasFilter = form.reportsFilter.checked
+        reportsSettings.hasGroupSort = form.reportsGroupSort.checked
+        reportsSettings.hasSurnameSort = form.reportsSurnameSort.checked
+        reportsSettings.studentsDocUrl = form.reportsStudentsDocUrl.value
+
+        google.script.run.saveReportsSettings(JSON.stringify(reportsSettings))
+        google.script.host.close()
+      }
+
+      function submitAbstractSample(form) {
+        let abstractSettings = new Object()
+        abstractSettings.hasVariant = form.abstractVariant.checked
+        abstractSettings.hasDate = form.abstractDate.checked
+        abstractSettings.hasComments = form.abstractComments.checked
+        abstractSettings.hasRemarks = form.abstractRemarks.checked
+        abstractSettings.hasFilter = form.abstractFilter.checked
+        abstractSettings.hasGroupSort = form.abstractGroupSort.checked
+        abstractSettings.hasSurnameSort = form.abstractSurnameSort.checked
+        abstractSettings.studentsDocUrl = form.abstractStudentsDocUrl.value
+
+        google.script.run.saveAbstractSettings(JSON.stringify(abstractSettings))
+        google.script.host.close()
+      }      
+
+      function submitEssaySample(form) {
+        let essaySettings = new Object()
+        essaySettings.hasVariant = form.essayVariant.checked
+        essaySettings.hasDate = form.essayDate.checked
+        essaySettings.hasComments = form.essayComments.checked
+        essaySettings.hasRemarks = form.essayRemarks.checked
+        essaySettings.hasFilter = form.essayFilter.checked
+        essaySettings.hasGroupSort = form.essayGroupSort.checked
+        essaySettings.hasSurnameSort = form.essaySurnameSort.checked
+        essaySettings.studentsDocUrl = form.essayStudentsDocUrl.value
+
+        google.script.run.saveEssaySettings(JSON.stringify(essaySettings))
+        google.script.host.close()
+      }   
+
+      function submitVKRSample(form) {
+        let vkrSettings = new Object()
+        vkrSettings.hasAttendance = form.vkrAttendance.checked
+        vkrSettings.hasCommentsAttestation = form.vkrCommentsAttestation.checked
+        vkrSettings.hasRemarksAttestation = form.vkrRemarksAttestation.checked
+        vkrSettings.hasPointsSupervisor = form.vkrPointsSupervisor.checked
+        vkrSettings.hasPointsReviewer = form.vkrPointsReviewer.checked
+        vkrSettings.hasOriginality = form.vkrOriginality.checked
+        vkrSettings.hasResult = form.vkrResult.checked
+        vkrSettings.hasComments = form.vkrComments.checked
+        vkrSettings.hasRemarks = form.vkrRemarks.checked
+        vkrSettings.hasFilter = form.vkrFilter.checked
+        vkrSettings.hasGroupSort = form.vkrGroupSort.checked
+        vkrSettings.hasSurnameSort = form.vkrSurnameSort.checked
+        vkrSettings.hasAttendanceNumberSort = form.vkrAttendanceNumberSort.checked
+        vkrSettings.studentsDocUrl = form.vkrStudentsDocUrl.value
+
+        google.script.run.saveVKRSettings(JSON.stringify(vkrSettings))
+        google.script.host.close()
+      }
+
+      function submitLabsSample(form) {
+        let labsSettings = new Object()
+        labsSettings.number = form.labsNumber.value
+        labsSettings.hasName = form.labsName.checked
+        labsSettings.hasReport = form.labsReport.checked
+        labsSettings.hasComments = form.labsComments.checked
+        labsSettings.hasRemarks = form.labsRemarks.checked
+        labsSettings.hasFilter = form.labsFilter.checked
+        labsSettings.hasGroupSort = form.labsGroupSort.checked
+        labsSettings.hasSurnameSort = form.labsSurnameSort.checked
+        labsSettings.studentsDocUrl = form.labsStudentsDocUrl.value
+
+        google.script.run.saveLabsSettings(JSON.stringify(labsSettings))
+        google.script.host.close()
+      }
+
+      function submitPracticesSample(form) {
+        let practicesSettings = new Object()
+        practicesSettings.number = form.practicesNumber.value
+        practicesSettings.hasName = form.practicesName.checked
+        practicesSettings.hasFormat = form.practicesFormat.checked
+        practicesSettings.hasDuration = form.practicesDuration.checked
+        practicesSettings.hasStudentDuration = form.practicesStudentDuration.checked
+        practicesSettings.hasComments = form.practicesComments.checked
+        practicesSettings.hasRemarks = form.practicesRemarks.checked
+        practicesSettings.hasFilter = form.practicesFilter.checked
+        practicesSettings.hasGroupSort = form.practicesGroupSort.checked
+        practicesSettings.hasSurnameSort = form.practicesSurnameSort.checked
+        practicesSettings.studentsDocUrl = form.practicesStudentsDocUrl.value
+
+        google.script.run.savePracticesSettings(JSON.stringify(practicesSettings))
+        google.script.host.close()
+      }
+
+      function submitLectionsSample(form) {
+        let lectionsSettings = new Object()
+        lectionsSettings.number = form.lectionsNumber.value
+        lectionsSettings.hasName = form.lectionsName.checked
+        lectionsSettings.hasFormat = form.lectionsFormat.checked
+        lectionsSettings.hasDuration = form.lectionsDuration.checked
+        lectionsSettings.hasStudentDuration = form.lectionsStudentDuration.checked
+        lectionsSettings.hasComments = form.lectionsComments.checked
+        lectionsSettings.hasRemarks = form.lectionsRemarks.checked
+        lectionsSettings.hasFilter = form.lectionsFilter.checked
+        lectionsSettings.hasGroupSort = form.lectionsGroupSort.checked
+        lectionsSettings.hasSurnameSort = form.lectionsSurnameSort.checked
+        lectionsSettings.studentsDocUrl = form.lectionsStudentsDocUrl.value
+
+        google.script.run.saveLectionsSettings(JSON.stringify(lectionsSettings))
+        google.script.host.close()
+      }
+
+      function submitSample(form) {
+        let lectionsCheckbox = form.lectionsCheckbox.checked
+        let practiceCheckbox = form.practiceCheckbox.checked
+        let labsCheckbox = form.labsCheckbox.checked
+        let courseWorkCheckbox = form.courseWorkCheckbox.checked
+        let courseProjectCheckbox = form.courseProjectCheckbox.checked
+        let testsCheckbox = form.testsCheckbox.checked
+        let controlCheckbox = form.controlCheckbox.checked
+        let reportsCheckbox = form.reportsCheckbox.checked
+        let abstractCheckbox = form.abstractCheckbox.checked
+        let essayCheckbox = form.essayCheckbox.checked
+        let homeworkCheckbox = form.homeworkCheckbox.checked
+        let edPracticeCheckbox = form.edPracticeCheckbox.checked
+        let vkrCertificationCheckbox = form.vkrCertificationCheckbox.checked
+
+        if (lectionsCheckbox == true) {
+          google.script.run.lections()
+        }
+
+        if (practiceCheckbox == true) {
+          google.script.run.practices()
+        }
+
+        if (labsCheckbox == true) {
+          google.script.run.labs()
+        }
+
+        if (courseWorkCheckbox == true) {
+          google.script.run.courseWork()
+        }
+        
+        if (courseProjectCheckbox == true) {
+          google.script.run.courseProject()
+        }
+
+        if (testsCheckbox == true) {
+          google.script.run.tests()
+        }
+
+        if (controlCheckbox == true) {
+          google.script.run.controls()
+        }
+
+        if (reportsCheckbox == true) {
+          google.script.run.reports()
+        }
+
+        if (abstractCheckbox == true) {
+          google.script.run.abstract()
+        }
+
+        if (essayCheckbox == true) {
+          google.script.run.essay()
+        }
+
+        if (homeworkCheckbox == true) {
+          google.script.run.homeworks()
+        }
+
+        if (edPracticeCheckbox == true) {
+          google.script.run.edPractice()
+        }
+
+        if (vkrCertificationCheckbox == true) {
+          google.script.run.vkrCertificationAndGraduation()
+        }
+      }
+
+      function submitMySample() {
+        alert( 'Заполните пустой Лист, который сейчас появится, так, как Вы бы хотели видеть шаблон. После окончания заполнения шаблона нажмите кнопку "Данные для шаблона введены"' )
+        google.script.run.mySample()
+      }
+
+      function submitMyDataForSample() {
+        google.script.run.withSuccessHandler(onSuccess).myDataForSampleAsJSON()
+      }
+
+      function onSuccess() {
+        google.script.run.onOpen()
+      }
+
+ </script>
+

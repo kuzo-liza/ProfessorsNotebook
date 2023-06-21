@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//www.google.com/jsapi"></script>
+    <title>Генератор таблиц аттестаций</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <base target="_top">
+    <?!= include('Stylesheet'); ?>
+  </head>
+  <body>
+    <?!= include('JavaScript'); ?>
+    <script>
+   
+    function preventFormSubmit() {
+      var forms = document.querySelectorAll('form');
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].addEventListener('submit', function(event) {
+          event.preventDefault();
+        });
+      }
+    }
+    window.addEventListener('load', preventFormSubmit);
+
+    </script>
+    <div class="tabs">
+      <ul>
+        <li class="tablinks is-active">
+          <a onclick="openTab(event, 'Choose sample')">
+            <span>Выбрать шаблон</span>
+          </a>
+        </li>
+        <li class="tablinks">
+          <a onclick="openTab(event, 'Make sample')">
+            <span>Создать свой шаблон</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="tabcontent" id="Choose sample">
+        <p class="subtitle" style="text-align:center">Выберите нужные таблицы</p>
+          <form id="sample" onsubmit="submitSample(this)">
+            <input type="checkbox" id="lectionsCheckbox" data-id="lectionsCheckbox" onchange="checkCheckboxSample(this)"> Лекции <br>
+            <input type="checkbox" id="practiceCheckbox" data-id="practiceCheckbox" onchange="checkCheckboxSample(this)"> Практические занятия <br>
+            <input type="checkbox" id="labsCheckbox" data-id="labsCheckbox" onchange="checkCheckboxSample(this)"> Лабораторные работы <br>
+            <input type="checkbox" id="courseWorkCheckbox" data-id="courseWorkCheckbox" onchange="checkCheckboxSample(this)"> Курсовая работа <br>
+            <input type="checkbox" id="courseProjectCheckbox" data-id="courseProjectCheckbox" onchange="checkCheckboxSample(this)"> Курсовой проект <br>
+            <input type="checkbox" id="testsCheckbox" data-id="testsCheckbox" onchange="checkCheckboxSample(this)"> Тест <br>
+            <input type="checkbox" id="controlCheckbox" data-id="controlCheckbox" onchange="checkCheckboxSample(this)"> Контрольная работа <br>
+            <input type="checkbox" id="reportsCheckbox" data-id="reportsCheckbox" onchange="checkCheckboxSample(this)"> Доклад <br>
+            <input type="checkbox" id="abstractCheckbox" data-id="abstractCheckbox" onchange="checkCheckboxSample(this)"> Реферат <br>
+            <input type="checkbox" id="essayCheckbox" data-id="essayCheckbox" onchange="checkCheckboxSample(this)"> Эссе <br>
+            <input type="checkbox" id="homeworkCheckbox" data-id="homeworkCheckbox" onchange="checkCheckboxSample(this)"> Домашнее задание <br>
+            <input type="checkbox" id="edPracticeCheckbox" data-id="edPracticeCheckbox" onchange="checkCheckboxSample(this)"> Практика <br>
+            <input type="checkbox" id="vkrCertificationCheckbox" data-id="vkrCertificationCheckbox" onchange="checkCheckboxSample(this)"> Аттестация и защита ВКР <br><br>
+            <input type="submit" value="Сгенерировать шаблон"><br><br>
+          </form>
+          <label for="note">Если приведенные выше варианты не подходят, выберите вкладку "Создать свой шаблон"</label><br><br>
+          <input type="button" value="Закрыть" onclick="google.script.host.close()"><br><br>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tabcontent is-hidden" id="Make sample">
+       <div data-addon-icon="settings" class="addon-dropdown-overlay-icon"></div>
+       <div style="margin-left: auto; width: 1px;"></div>
+       <div data-addon-icon="settings" class="addon-dropdown-overlay-icon">
+       <form id="form">
+        <label for="mySamples">Мои шаблоны:</label><br>
+        <? var samples = getCustomSamples(); ?>
+        <? if (samples != 0) { ?>
+        <?    for (var sampleId = 1; sampleId < samples; sampleId++) { ?>
+          <input type="button" value="Шаблон <?= sampleId ?>" onclick="addMySample(<?=sampleId?>)"><br>
+        <?    } ?> 
+        <? } else { ?>
+          <form id="frm">
+            <label for="note">шаблонов нет</label>
+          </form>
+        <? } ?>
+        <input type="button" value="Создать свой шаблон" onclick="submitMySample()"><br><br>
+        <input type="button" value="Данные для шаблона введены" onclick="submitMyDataForSample()">
+        </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

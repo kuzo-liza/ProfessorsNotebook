@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="homeworkColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="homeworkForm" onsubmit="submitHomeworkSample(this)">
+            <input type="checkbox" id="homeworkName" name="homeworkName" data-id="homeworkName"> Название домашнего задания <br>
+            <input type="checkbox" id="homeworkBlackboardAnswer" data-id="homeworkBlackboardAnswer"> Выход к доске <br>
+            <input type="checkbox" id="homeworkComments" data-id="homeworkComments"> Комментарии <br>
+            <input type="checkbox" id="homeworkRemarks" data-id="homeworkRemarks"> Замечания <br><br>
+
+            <label for="lectionsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="homeworkFilter" data-id="homeworkFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="homeworkGroupSort" data-id="homeworkGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="homeworkSurnameSort" data-id="homeworkSurnameSort"> Отсортировать по фамилии <br><br>
+           
+            <label for="homeworkStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="homeworkStudentsDocUrl" name="homeworkStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

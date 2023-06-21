@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="practicesColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="practicesForm" onsubmit="submitPracticesSample(this)">
+
+            <input type="checkbox" id="practicesName" name="practicesName" data-id="practicesName"> Название практического занятия <br>
+            <input type="checkbox" id="practicesFormat" data-id="practicesFormat"> Формат (очно/дистанционно) <br>
+            <input type="checkbox" id="practicesDuration" data-id="practicesDuration"> Длительность занятия <br>
+            <input type="checkbox" id="practicesStudentDuration" data-id="practicesStudentDuration"> Длительность посещения студентом <br>
+            <input type="checkbox" id="practicesComments" data-id="practicesComments"> Комментарии <br>
+            <input type="checkbox" id="practicesRemarks" data-id="practicesRemarks"> Замечания <br><br>
+  
+            <label for="practicesNum">Количество практических занятий</label>
+            <input type="number" id="practicesNumber" name="practicesNumber" placeholder="..."><br><br>
+
+            <label for="lectionsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="practicesFilter" data-id="practicesFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="practicesGroupSort" data-id="practicesGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="practicesSurnameSort" data-id="practicesSurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="practicesStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="practicesStudentsDocUrl" name="practicesStudentsDocUrl" placeholder="..."><br><br>
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

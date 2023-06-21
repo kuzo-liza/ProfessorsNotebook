@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="labsColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="labsForm" onsubmit="submitLabsSample(this)">
+            
+            <input type="checkbox" id="labsName" name="labsName" data-id="labsName"> Название лабораторной работы <br>
+            <input type="checkbox" id="labsReport" name="labsReport" data-id="labsReport"> Отчет <br>
+            <input type="checkbox" id="labsComments" data-id="labsComments"> Комментарии <br>
+            <input type="checkbox" id="labsRemarks" data-id="labsRemarks"> Замечания <br><br>
+    
+            <label for="labsNum">Количество лабораторных работ</label>
+            <input type="number" id="labsNumber" name="labsNumber" placeholder="..."><br><br>
+
+            <label for="labsFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="labsFilter" data-id="labsFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="labsGroupSort" data-id="labsGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="labsSurnameSort" data-id="labsSurnameSort"> Отсортировать по фамилии <br><br>
+
+            <label for="labsStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="labsStudentsDocUrl" name="labsStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>

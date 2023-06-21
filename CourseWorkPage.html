@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <?!= include('JavaScript'); ?>
+     <div class="container">
+        <label for="courseWorkColumns">Выберите дополнительные данные для таблицы, которые необходимо добавить</label><br>
+          <form id="courseWorkForm" onsubmit="submitCourseWorkSample(this)">
+            <input type="checkbox" id="courseWorkVariant" name="courseWorkVariant" data-id="courseWorkVariant"> Название курсовой работы <br>
+            <input type="checkbox" id="courseWorkReport" data-id="courseWorkReport"> Готовность отчета <br>
+            <input type="checkbox" id="courseWorkComments" data-id="courseWorkComments"> Комментарии <br>
+            <input type="checkbox" id="courseWorkRemarks" data-id="courseWorkRemarks"> Замечания <br><br>
+
+            <label for="courseWorkFilter">Выберите необходимые условия </label><br>
+            <input type="checkbox" id="courseWorkFilter" data-id="courseWorkFilter"> Добавить фильтрацию по столбцам <br>
+            <input type="checkbox" id="courseWorkGroupSort" data-id="courseWorkGroupSort"> Отсортировать по группе <br>
+            <input type="checkbox" id="courseWorkSurnameSort" data-id="courseWorkSurnameSort"> Отсортировать по фамилии <br> <br>
+
+            <label for="courseWorkStudentsDoc">Вставьте ссылку на список студентов из Google Документов для загрузки в таблицу</label><br>
+            <input type="url" id="courseWorkStudentsDocUrl" name="courseWorkStudentsDocUrl" placeholder="..."><br><br>
+
+            <input type="submit" value="Сохранить настройки шаблона">
+          </form> 
+          <input type="button" value="Отмена" onclick="google.script.host.close()" />
+      </div>
+  </body>
+</html>
