@@ -53,7 +53,7 @@
 
 Логотип приложения
 
-![image](https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/7802593d-fa3a-4f5b-8c4d-186f4e296613)
+<img width="141" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/d5f7deb0-baed-4330-8691-770ce512f093">
 
 ## Тестирование
 В качестве инструмента для тестирования был использован фреймворк GasT (https://github.com/huan/gast/tree/master). Он легкий в подключении и использовании, а также запускается в среде разработки GAS. Для запуска тестов необходимо в среде Google Apps Script запустить метод runTests() (файл Test.gs)
