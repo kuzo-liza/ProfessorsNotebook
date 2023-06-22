@@ -10,28 +10,36 @@
 
 ## Как пользоваться
 1. После запуска приложения откроется следующий sidebar:
-<img width="301" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/30b4d5e8-627c-4a94-b2db-fb520604456e">
+
+<img width="299" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/453865e5-64c5-4d59-9167-8f3106a1c94a">
 
 2. Можно выбрать любой шаблон и нажать на чекбокс. После чего всплывет алерт о том, шаблон какой таблицы будет добавлен. Например, был выбран шаблон лекций.
-<img width="446" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/0df22ad1-da87-49c7-9dee-3d0e1496af70">
+
+<img width="483" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/482c8daf-db4c-4af0-a47b-c55abb043664">
 
 3. Далее откроется окно дополнительных настроек шаблона. Здесь можно указать какие дополнительные столбцы добавить, указать количество занятий, выбрать сортировку и добавить фильтрацию по столбцам таблицы. Кроме того, можно указать ссылку на Google Документ со списком студентов.
-<img width="455" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/2d3d6fcf-6d0a-4f2c-8b88-0dd4614b11d1">
 
-4. После ввода данных следует нажать на кнопку сохранить шаблон. Данные об этом шаблоне сохраняться.
+<img width="466" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/8b34db7d-8993-4b57-bd40-155d885566cd">
+
+4. После ввода данных следует нажать на кнопку "сохранить шаблон". Данные об этом шаблоне сохраняться.
 
 5. Следующим шагом можно добавить шаблон другой аттестации (например, курсовые работы).
 
 6. Для генерации сохраненного шаблона необходимо нажать на кнопку в боковом окне ("сгенерировать шаблон"). Генерация работает и для нескольких видов таблиц аттестаций. Они будут по очереди создаваться.
 
+Если не указывать ничего в дополнительных настройках, то шаблон все равно сохранится и будет создан.
+
 7. Если представленные варианты шаблонов не подходят, то есть возможность сохранения своего. Для этого надо выбрать соседний таб - "создать свой шаблон". После чего откроется окно своих шаблонов.
- <img width="353" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/8c4956e6-df9e-4cec-9105-29da4658fe05">
+
+<img width="352" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/a5f81720-b05f-4103-a415-c08c702e4b6b">
 
 8. Чтобы добавить шаблон надо нажать на кнопку "создать свой шаблон". Далее всплывет алерт о том, что в новый лист таблицы, который будет создан сейчас, необходимо ввести данные для шаблона.
-<img width="445" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/a59bee89-159e-4c40-9ecb-72f0841b0740">
+
+<img width="457" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/1a1030cd-f55a-40d4-91e2-ebce56deb174">
 
 9. После ввода данных следует нажать на кнопку "данные шаблона введены" в sidebar. Шаблон сохранится и добавится в список собственных шаблонов.
-<img width="303" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/18a4d634-ddb0-4196-8764-55393fa5fa5f">
+    
+<img width="296" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/80764777-1c1a-4637-8852-c957089020c0">
 
 10. При нажатии на сохраненный шаблон, будет создаваться новый лист электронной таблицы с данными этого шаблона. 
 
@@ -43,10 +51,15 @@
 ## Установка приложения через Google Workspace Marketplace
 ...in progress...
 
+Логотип приложения
+
+![image](https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/7802593d-fa3a-4f5b-8c4d-186f4e296613)
+
 ## Тестирование
 В качестве инструмента для тестирования был использован фреймворк GasT (https://github.com/huan/gast/tree/master). Он легкий в подключении и использовании, а также запускается в среде разработки GAS. Для запуска тестов необходимо в среде Google Apps Script запустить метод runTests() (файл Test.gs)
 
 ## Демо
 Пример шаблона лекций:
 
-<img width="830" alt="image" src="https://github.com/kuzo-liza/training/assets/15912820/a5b840d2-513c-4274-ae6f-bfdcf3354f21">
+<img width="833" alt="image" src="https://github.com/kuzo-liza/ProfessorsNotebook/assets/15912820/770826f2-578b-468b-9d4e-b6e0f433fab9">
+
